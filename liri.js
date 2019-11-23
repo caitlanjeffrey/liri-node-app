@@ -25,9 +25,14 @@ const concert = function() {
     // applying argvTwo to bands-in-town api call
     axios.get("https://rest.bandsintown.com/artists/" + argvTwo + "/events?" + keys.bandsInTown.key).then(function (response) {
         // handle success
-        // console.log(response.data)
-        console.log("Venue: " + response.venue.name)
-        console.log(response.data.datetime)
+        console.log("Artist: " + argvTwo)
+        for (i = 0; i < 3; i++) {
+            console.log("Venue: " + response.data[i].venue.name)
+            console.log("Location: " + response.data[i].venue.city + ", " + response.data[i].venue.region + ", " + response.data[i].venue.country)
+            console.log("Concert Date: " + moment(response.data[i].datetime).format('MMMM Do YYYY, h:mm:ss a'))
+            
+            console.log("***************************************".green)
+        }
     }).catch(function (error) {
         // handle error
         console.log(error);
@@ -47,7 +52,7 @@ const songs = function() {
         }
 
         // loop for initial object information
-        for (let i = 0; i < data.tracks.items.length; i++) {
+        for (let i = 0; i < 3; i++) {
             console.log("Song: " + data.tracks.items[i].name);
             console.log("Album: " + data.tracks.items[i].album.name);
             console.log("URL: " + data.tracks.items[i].preview_url);
@@ -73,7 +78,6 @@ const movies = function() {
     // applying argvTwo to omdb api call
     axios.get("http://www.omdbapi.com/?t=" + argvTwo + "&" + keys.omdbURL.key).then(function (response) {
         // handle success
-        console.log(response.data)
         console.log("Title: " + response.data.Title)
         console.log("Plot: " + response.data.Plot)
         console.log("Actors: " + response.data.Actors)
@@ -82,10 +86,15 @@ const movies = function() {
         console.log("Language: " + response.data.Language)
         console.log("IMDB Rating: " + response.data.Ratings[0].Value)
         console.log("Rotten Tomatoes Rating: " + response.data.Ratings[1].Value)
+
+        console.log("***************************************".yellow)
+
     }).catch(function (error) {
         // handle error
         console.log(error);
-    })
+    }).finally(function () {
+        
+    });
 }
 
 // run doWhat function for switch/case
@@ -96,10 +105,11 @@ const doWhat = function() {
         }
     
     //Parse the JSON string to an object
-        
+        const doThisThing = JSON.parse(data);
     
     //Create two new arrays to contain the cats and dogs objects
-        songs(JSON.stringify(data))
+        const dogs = [];
+        const cats = [];
     });
 }
 

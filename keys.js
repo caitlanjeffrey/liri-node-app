@@ -1,4 +1,4 @@
-console.log("Key ring is full!")
+console.log("One key ring to rule them all, one key ring to find them, One key ring to bring them all and in the darkness bind them.".magenta)
 
 exports.spotify = {
    id: process.env.SPOTIFY_ID,
