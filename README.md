@@ -1,4 +1,4 @@
-# liri-node-app:
+# LIRI-Node-App:
 Liri Bot Welcomes you...
 
 LIRI is like SIRI. However, while SIRI is a Speech Interpretation and Recognition Interface, LIRI is a Language Interpretation and Recognition Interface. LIRI will be a command line node app that takes in parameters and gives you back data.
@@ -66,5 +66,8 @@ Step Four: node liri.js do-what-it-says
 
     This will output the command placed in random.txt file
 
-Author
+# Author
 Caitlan Jeffrey
+
+# Special Thanks
+Thanks to my TA's for helping me through my project!
