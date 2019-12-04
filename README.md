@@ -33,8 +33,9 @@ Step One: node liri concert-this <artist name here> will show the artist that yo
     Venue name
     City, State, Country where concert is held
     Time of concert
+    Example: (./images/concert-this-artistSelected.png)
 
-    If no concert is provided then the program will default to "Taylor Swift".
+    If no concert is provided then the program will default to "Taylor Swift" (./images/concert-this-noArtist.png).
 
 Step Two: node liri spotify-this-song <song name here> will show the song that you searched.
 
@@ -44,8 +45,9 @@ Step Two: node liri spotify-this-song <song name here> will show the song that y
     The song's name
     A preview link of the song from Spotify
     The album that the song is from
+    Example: (./images/songs-songSelected.png)
 
-    If no song is provided then the program will default to "Barbie Tingz" by Nicki Minaj.
+    If no song is provided then the program will default to "Barbie Tingz" by Nicki Minaj (./images/songs-noSongSelected.png).
 
 Step Three: node liri.js movie-this <movie name here>.
 
@@ -59,12 +61,13 @@ Step Three: node liri.js movie-this <movie name here>.
     Language of the movie.
     IMDB Rating of the movie.
     Rotten Tomatoes Rating.
+    Example: (./images/movies-movieSelected.png)
 
-    If the user doesn't type a movie in, the program will output data for the movie 'Monty Python and the Holy Grail'.
+    If the user doesn't type a movie in, the program will output data for the movie 'Monty Python and the Holy Grail' (./images/movies-noMovieSelected.png).
 
 Step Four: node liri.js do-what-it-says
 
-    This will output the command placed in random.txt file
+    This will output the command placed in random.txt file: (./images/do-what-it-says.png)
 
 # Author
 Caitlan Jeffrey

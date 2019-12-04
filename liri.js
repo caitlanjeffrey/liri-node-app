@@ -133,11 +133,11 @@ const doWhat = function() {
 
         var doWhatSongs = splitContents[1]
         var doWhatMovies = splitContents[3]
-        var doWhatConcert = splitContents[5]
+        var argvTwo = splitContents[5]
 
-        bands()
         spotify(doWhatSongs)
         movieSearch(doWhatMovies)
+        concert(argvTwo)
     });
 }
 
