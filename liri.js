@@ -18,26 +18,35 @@
     var argvOne = process.argv[2].toLowerCase()
     var argvTwo = process.argv.slice(3).join(" ")
 
-
 // run concert function for switch/case
-const concert = function(argvTwo) {
-
-    // applying argvTwo to bands-in-town api call
-    axios.get("https://rest.bandsintown.com/artists/" + argvTwo + "/events?app_id=" + keys.bandsInTown.key).then(function (response) {
-        // handle success
-        console.log("Artist: " + argvTwo)
-        for (i = 0; i < 3; i++) {
-            console.log("Venue: " + response.data[i].venue.name)
-            console.log("Location: " + response.data[i].venue.city + ", " + response.data[i].venue.region + ", " + response.data[i].venue.country)
-            console.log("Concert Date: " + moment(response.data[i].datetime).format('MMMM Do YYYY, h:mm:ss a'))
-            
-            console.log("***************************************".green)
-        }
-    }).catch(function (error) {
-        // handle error
-        console.log(error);
-    })
+const concert = function() {
+    if(argvTwo) {
+        bands(argvTwo)
+    } else {
+        bands("Taylor Swift")
+    }
 }
+
+    function bands(concerts) {
+
+        // applying argvTwo to bands-in-town api call
+        axios.get("https://rest.bandsintown.com/artists/" + concerts + "/events?app_id=" + keys.bandsInTown.key).then(function (response) {
+        
+            // handle success
+                console.log("Artist: " + concerts)
+                for (i = 0; i < 3; i++) {
+                    console.log("Venue: " + response.data[i].venue.name)
+                    console.log("Location: " + response.data[i].venue.city + ", " + response.data[i].venue.region + ", " + response.data[i].venue.country)
+                    console.log("Concert Date: " + moment(response.data[i].datetime).format('MMMM Do YYYY, h:mm:ss a'))
+                    
+                    console.log("***************************************".green)
+                }
+            }).catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+    }
+
 
 // run songs function for switch/case
 const songs = function() {
@@ -48,7 +57,7 @@ const songs = function() {
     }
 }
 
-    function spotify(artist){
+    function spotify(artist) {
         // Spotify keys required
         const spotify = new Spotify(keys.spotify);
 
@@ -126,7 +135,7 @@ const doWhat = function() {
         var doWhatMovies = splitContents[3]
         var doWhatConcert = splitContents[5]
 
-        concert(splitContents[5])
+        bands()
         spotify(doWhatSongs)
         movieSearch(doWhatMovies)
     });
